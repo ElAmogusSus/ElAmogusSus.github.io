@@ -1,11 +1,31 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelector('form').addEventListener('submit', function(e) {
+          e.preventDefault();
+
+          let mti = document.getElementById('mti').value;
+          let ley = document.getElementById('ley').value;
+          let fil = document.getElementById('fil').value;
+          let li1 = document.getElementById('li1').value;
+
+          console.log((mti + ley + fil + li1)/4);
+        })
+      })
+    </script>
+  </head>
   <body>
     <h1>Hello world!</h1>
     <p>I'm hosted with GitHub Pages.</p>
 
     <form>
-      <input type="number">
+      <input id="mti" type="number" max="10" min="0">
+      <input id="ley" type="number" max="10" min="0">
+      <input id="fil" type="number" max="10" min="0">
+      <input id="li1" type="number" max="10" min="0">
+      <input type="submit">
     </form>
   </body>
 </html>
