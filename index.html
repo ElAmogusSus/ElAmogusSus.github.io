@@ -24,15 +24,16 @@
 
         function updateInputs()
         {
+          let count = 0;
           let inputs = document.querySelectorAll('.grade');
           inputs.forEach(input => {
+            count += 1;
             input.addEventListener('change', function() {
-              let mti = parseFloat(document.getElementById('mti').value) || 0;
-              let ley = parseFloat(document.getElementById('ley').value) || 0;
-              let fil = parseFloat(document.getElementById('fil').value) || 0;
-              let li1 = parseFloat(document.getElementById('li1').value) || 0;
-
-              let average = ((mti + ley + fil + li1)/4);
+              let sum = 0;
+              inputs.forEach(input => {
+              sum += parseFloat(input.value) || 0;
+              });
+              let average = (sum/count);
               document.getElementById('results').innerHTML = `Nota final: ${average}`;
             });
           });
