@@ -11,7 +11,9 @@
           let fil = parseFloat(document.getElementById('fil').value);
           let li1 = parseFloat(document.getElementById('li1').value);
 
-          console.log((mti + ley + fil + li1)/4)
+          let average = ((mti + ley + fil + li1)/4);
+
+          document.getElementById('results').innerHTML = average;
         })
       })
     </script>
@@ -27,5 +29,7 @@
       <input id="li1" type="number" max="10" min="0">
       <input type="submit">
     </form>
+
+    <p id="results"></p>
   </body>
 </html>
