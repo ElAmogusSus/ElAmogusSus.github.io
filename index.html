@@ -7,14 +7,18 @@
         let subjectSelectors = document.querySelectorAll('.subject-selector');
         subjectSelectors.forEach(selector => {
           selector.addEventListener('change', function() {
-            if(selector.checked) {
-              document.getElementById('input-set').innerHTML = `
-                <div>
-                  <input id=${selector.id} type="number" max="10" min="0">
-                  <label for=${selector.id}>${selector.name}</label>
-                </div>`;
-              updateInputs();
-            }
+            let html = '';
+            subjectSelectors.forEach(selector => {
+              if(selector.checked) {
+                html += `
+                  <div>
+                    <input class="grade" id=${selector.id} type="number" max="10" min="0">
+                    <label for=${selector.id}>${selector.name}</label>
+                  </div>`;
+              }
+            });
+            document.getElementById('input-set').innerHTML = html;
+            updateInputs();
           });
         });
 
