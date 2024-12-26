@@ -5,7 +5,7 @@
       document.addEventListener('DOMContentLoaded', function() {
         let inputs = document.querySelectorAll('input');
 
-        for (input in inputs) {
+        inputs.forEach(input => {
           input.addEventListener('change', function() {
             let mti = parseFloat(document.getElementById('mti').value) || 0;
             let ley = parseFloat(document.getElementById('ley').value) || 0;
@@ -14,9 +14,9 @@
 
             let average = ((mti + ley + fil + li1)/4);
             document.getElementById('results').innerHTML = `Nota final: ${average}`;
-          })
-        }
-      })
+          });
+        });
+      });
     </script>
   </head>
   <body>
