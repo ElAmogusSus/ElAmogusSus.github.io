@@ -6,12 +6,12 @@
         document.querySelector('form').addEventListener('submit', function(e) {
           e.preventDefault();
 
-          let mti = document.getElementById('mti').value;
-          let ley = document.getElementById('ley').value;
-          let fil = document.getElementById('fil').value;
-          let li1 = document.getElementById('li1').value;
+          let mti = parseFloat(document.getElementById('mti').value);
+          let ley = parseFloat(document.getElementById('ley').value);
+          let fil = parseFloat(document.getElementById('fil').value);
+          let li1 = parseFloat(document.getElementById('li1').value);
 
-          console.log((mti + ley + fil + li1)/4);
+          console.log((mti + ley + fil + li1)/4)
         })
       })
     </script>
