@@ -3,19 +3,32 @@
   <head>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
-        let inputs = document.querySelectorAll('input');
 
-        inputs.forEach(input => {
-          input.addEventListener('change', function() {
-            let mti = parseFloat(document.getElementById('mti').value) || 0;
-            let ley = parseFloat(document.getElementById('ley').value) || 0;
-            let fil = parseFloat(document.getElementById('fil').value) || 0;
-            let li1 = parseFloat(document.getElementById('li1').value) || 0;
-
-            let average = ((mti + ley + fil + li1)/4);
-            document.getElementById('results').innerHTML = `Nota final: ${average}`;
+        let subjectSelectors = document.querySelectorAll('.subject-selector');
+        subjectSelectors.forEach(selector => {
+          selector.addEventListener('change', function() {
+            if(selector.checked) {
+              document.getElementById('input-set').innerHTML = `<input class="grade" id=${selector.id} type="number" max="10" min="0">`;
+              updateInputs();
+            }
           });
         });
+
+        function updateInputs()
+        {
+          let inputs = document.querySelectorAll('.grade');
+          inputs.forEach(input => {
+            input.addEventListener('change', function() {
+              let mti = parseFloat(document.getElementById('mti').value) || 0;
+              let ley = parseFloat(document.getElementById('ley').value) || 0;
+              let fil = parseFloat(document.getElementById('fil').value) || 0;
+              let li1 = parseFloat(document.getElementById('li1').value) || 0;
+
+              let average = ((mti + ley + fil + li1)/4);
+              document.getElementById('results').innerHTML = `Nota final: ${average}`;
+            });
+          });
+        }
       });
     </script>
   </head>
@@ -25,28 +38,25 @@
       <legend>Elige tus asignaturas:</legend>
       
       <div>
-        <input type="checkbox" id="mti" name="Matemáticas"/>
+        <input type="checkbox" class="subject-selector" id="mti" name="Matemáticas"/>
         <label for="mti">Matemáticas</label>
       </div>
       <div>
-        <input type="checkbox" id="ley" name="Lengua"/>
+        <input type="checkbox" class="subject-selector" id="ley" name="Lengua"/>
         <label for="ley">Lengua</label>
       </div>
       <div>
-        <input type="checkbox" id="fil" name="Filosofía"/>
+        <input type="checkbox" class="subject-selector" id="fil" name="Filosofía"/>
         <label for="fil">Filosofía</label>
       </div>
       <div>
-        <input type="checkbox" id="li1" name="Inglés"/>
+        <input type="checkbox" class="subject-selector" id="li1" name="Inglés"/>
         <label for="li1">Inglés</label>
       </div>
 
     </fieldset>
 
-    <input id="mti" type="number" max="10" min="0">
-    <input id="ley" type="number" max="10" min="0">
-    <input id="fil" type="number" max="10" min="0">
-    <input id="li1" type="number" max="10" min="0">
+    <div id="input-set"></div>
 
     <p id="results"></p>
   </body>
