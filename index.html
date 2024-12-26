@@ -3,18 +3,19 @@
   <head>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
-        document.querySelector('input').addEventListener('change', function(e) {
-          e.preventDefault();
+        let inputs = document.querySelectorAll('input');
 
-          let mti = parseFloat(document.getElementById('mti').value);
-          let ley = parseFloat(document.getElementById('ley').value);
-          let fil = parseFloat(document.getElementById('fil').value);
-          let li1 = parseFloat(document.getElementById('li1').value);
+        for (input in inputs) {
+          input.addEventListener('change', function() {
+            let mti = parseFloat(document.getElementById('mti').value) || 0;
+            let ley = parseFloat(document.getElementById('ley').value) || 0;
+            let fil = parseFloat(document.getElementById('fil').value) || 0;
+            let li1 = parseFloat(document.getElementById('li1').value) || 0;
 
-          let average = ((mti + ley + fil + li1)/4);
-
-          document.getElementById('results').innerHTML = `Nota final: ${average}`;
-        })
+            let average = ((mti + ley + fil + li1)/4);
+            document.getElementById('results').innerHTML = `Nota final: ${average}`;
+          })
+        }
       })
     </script>
   </head>
