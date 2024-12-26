@@ -8,7 +8,11 @@
         subjectSelectors.forEach(selector => {
           selector.addEventListener('change', function() {
             if(selector.checked) {
-              document.getElementById('input-set').innerHTML = `<input class="grade" id=${selector.id} type="number" max="10" min="0">`;
+              document.getElementById('input-set').innerHTML = `
+                <div>
+                  <input id=${selector.id} type="number" max="10" min="0">
+                  <label for=${selector.id}>${selector.name}</label>
+                </div>`;
               updateInputs();
             }
           });
