@@ -81,7 +81,7 @@
         function updateSubjectSelectors() {
           let html = '';
           subjects.forEach(subject => {
-            if (subject.level != level) {
+            if (subject.level == level) {
               if (subject.modality == modality || subject.modality == 'all') {
                 html += `
                   <div>
