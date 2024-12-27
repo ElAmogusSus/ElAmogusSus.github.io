@@ -7,6 +7,8 @@
         let inputSet = document.getElementById('input-set');
         let results = document.getElementById('results');
 
+        let grades = {}; // {subject ID : grade}
+
         subjectSelectors.forEach(selector => {
           selector.addEventListener('change', function () {
             updateInputs();
@@ -18,6 +20,7 @@
           let html = '';
           subjectSelectors.forEach(selector => {
             if(selector.checked) {
+              let value = grades[selector.id] || ''; // Retain saved grade
               html += `
                 <div>
                   <input class="grade" id=${selector.id+'-grade'} type="number" max="10" min="0">
@@ -34,6 +37,7 @@
           let inputs = document.querySelectorAll('.grade');
           inputs.forEach(input => {
             input.addEventListener('change', function() {
+              grades[input.id.split('-')[0]] = input.value; // Save grade
               calculateAverage();
             });
           });
@@ -51,7 +55,7 @@
 
           let average = 0;
           if (count > 0) {
-            average = sum/count.toFixed(2)
+            average = (sum/count).toFixed(2)
           } else {
             average = 0;
           }
