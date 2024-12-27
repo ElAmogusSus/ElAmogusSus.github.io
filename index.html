@@ -3,47 +3,65 @@
   <head>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
-
         let subjectSelectors = document.querySelectorAll('.subject-selector');
+        let inputSet = document.getElementById('input-set');
+        let results = document.getElementById('results');
+
         subjectSelectors.forEach(selector => {
-          selector.addEventListener('change', function() {
-            let html = '';
-            subjectSelectors.forEach(selector => {
-              if(selector.checked) {
-                html += `
-                  <div>
-                    <input class="grade" id=${selector.id+'-grade'} type="number" max="10" min="0">
-                    <label for=${selector.id+'-grade'}>${selector.name}</label>
-                  </div>`;
-              }
-            });
-            document.getElementById('input-set').innerHTML = html;
+          selector.addEventListener('change', function () {
             updateInputs();
           });
         });
 
         function updateInputs()
         {
-          let count = 0;
+          let html = '';
+          subjectSelectors.forEach(selector => {
+            if(selector.checked) {
+              html += `
+                <div>
+                  <input class="grade" id=${selector.id+'-grade'} type="number" max="10" min="0">
+                  <label for=${selector.id+'-grade'}>${selector.name}</label>
+                </div>`;
+            }
+          });
+          inputSet.innerHTML = html;
+          attachInputListeners();
+        }
+
+        function attachInputListeners()
+        {
           let inputs = document.querySelectorAll('.grade');
           inputs.forEach(input => {
-            count += 1;
             input.addEventListener('change', function() {
-              let sum = 0;
-              inputs.forEach(input => {
-                sum += parseFloat(input.value) || 0;
-              });
-
-              let average = (sum/count);
-              document.getElementById('results').innerHTML = `Nota final: ${average}`;
+              calculateAverage();
             });
           });
+        }
+
+        function calculateAverage() {
+          let inputs = document.querySelectorAll('.grade');
+          let sum = 0;
+          let count = 0;
+
+          inputs.forEach(input => {
+            sum += parseFloat(input.value) || 0;
+            count++;
+          });
+
+          if (count > 0) {
+            let average = sum/count.toFixed(2)
+          } else {
+            let average = 0;
+          }
+
+          results.innerHTML = `Nota final: ${average}`;
         }
       });
     </script>
   </head>
   <body>
-    <h1>Calculador de Nota Media</h1>
+    <h1>Calculadora de Nota Media</h1>
     <fieldset>
       <legend>Elige tus asignaturas:</legend>
       
