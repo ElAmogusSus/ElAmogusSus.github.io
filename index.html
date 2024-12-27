@@ -49,12 +49,12 @@
             count++;
           });
 
+          let average = 0;
           if (count > 0) {
-            let average = sum/count.toFixed(2)
+            average = sum/count.toFixed(2)
           } else {
-            let average = 0;
+            average = 0;
           }
-
           results.innerHTML = `Nota final: ${average}`;
         }
       });
