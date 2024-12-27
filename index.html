@@ -72,21 +72,14 @@
             } else {
               level = '2';
             }
-            console.log('level selector id: ' + selector.id)
-            console.log('level: ' + level);
+
+            updateSubjectSelectors();
           });
         });
 
         modalitySelectors.forEach(selector => {
           selector.addEventListener('change', function() {
             modality = selector.id;
-            console.log('modality selector id: '+ selector.id)
-            console.log('modality: ' + modality);
-          });
-        });
-
-        modalitySelectors.forEach(selector => {
-          selector.addEventListener('change', function() {
             updateSubjectSelectors();
           });
         });
