@@ -5,6 +5,7 @@
       document.addEventListener('DOMContentLoaded', function() {
         let levelSelectors = document.querySelectorAll('.level-selector');
         let modalitySelectors = document.querySelectorAll('.modality-selector');
+        let subjectSelectors = document.querySelectorAll('.subject-selector');
 
         let subjectSet = document.getElementById('subject-set');
         let inputSet = document.getElementById('input-set');
@@ -85,7 +86,7 @@
         });
 
         function updateSubjectSelectors() {
-          let subjectSelectors = document.querySelectorAll('.subject-selector');
+          subjectSelectors = document.querySelectorAll('.subject-selector');
 
           let html = '';
           subjects.forEach(subject => {
