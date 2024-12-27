@@ -23,8 +23,8 @@
               let value = grades[selector.id] || ''; // Retain saved grade
               html += `
                 <div>
-                  <input class="grade" id=${selector.id+'-grade'} type="number" max="10" min="0">
-                  <label for=${selector.id+'-grade'}>${selector.name}</label>
+                  <input class="grade" id="${selector.id}-grade" type="number" max="10" min="0" value="${value}">
+                  <label for="${selector.id}-grade">${selector.name}</label>
                 </div>`;
             }
           });
@@ -36,8 +36,9 @@
         {
           let inputs = document.querySelectorAll('.grade');
           inputs.forEach(input => {
-            input.addEventListener('change', function() {
-              grades[input.id.split('-')[0]] = input.value; // Save grade
+            input.addEventListener('input', function() {
+              let subjectId = input.id.split('-')[0];
+              grades[subjectId] = parseFloat(input.value) || ''; // Save grade
               calculateAverage();
             });
           });
