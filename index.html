@@ -86,8 +86,6 @@
         });
 
         function updateSubjectSelectors() {
-          subjectSelectors = document.querySelectorAll('.subject-selector');
-
           let html = '';
           subjects.forEach(subject => {
             if (subject.level == level) {
@@ -102,14 +100,13 @@
           });
           subjectSet.innerHTML = html;
           subjectSelectors = document.querySelectorAll('.subject-selector');
-        }
-
-        subjectSelectors.forEach(selector => {
-          selector.addEventListener('change', function () {
-            updateInputs();
+          subjectSelectors.forEach(selector => {
+            selector.addEventListener('change', function() {
+              updateInputs();
+            });
           });
-        });
-
+        }
+        
         function updateInputs()
         {
           let html = '';
