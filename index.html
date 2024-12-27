@@ -6,12 +6,51 @@
         let levelSelectors = document.querySelectorAll('.level-selector');
         let modalitySelectors = document.querySelectorAll('.modality-selector');
         let subjectSelectors = document.querySelectorAll('.subject-selector');
+
+        let subjectSet = document.getElementById('subject-set');
         let inputSet = document.getElementById('input-set');
         let results = document.getElementById('results');
 
         let level = '';
         let modality = '';
+
         let grades = {}; // {subject ID : grade}
+
+        class Subject {
+          constructor(name, id, level, modality) {
+            this.name = name;
+            this.id = id;
+            this.level = level;
+            this.modality = modality;
+          }
+        }
+
+        // First Level
+        //   Common Subjects
+        let educacionFisica = new Subject('Educación Física', 'efi', '1', 'all');
+        let lenguaCastellanaYLiteratura1 = new Subject('Lengua Castellana Y Literatura I', 'ley', '1', 'all');
+        let filosofia = new Subject('Filosofía', 'fil', '1', 'all')
+        let lenguaExtranjera1 = new Subject('Lengua Extranjera I', 'li1', '1', 'all');
+
+        // Ciencias Y Tecnología
+        let matematicas1 = new Subject('Matemáticas I', 'mti', '1', 'Ciencias Y Tecnología');
+        let biologiaGeologiaYCienciasAmbientales = new Subject('Biología, Geología Y Ciencias Ambientales', 'big', '1', 'Ciencias Y Tecnología');
+        let tecnologiaEIngenieria1 = new Subject('Tecnología E Ingenieria I', 'wec', '1', 'Ciencias Y Tecnología');
+        let dibujoTecnico1 = new Subject('Dibujo Técnico I', 'dbt', '1', 'Ciencias Y Tecnología');
+        let fisicaYQuimica = new Subject('Física Y Química', 'fyq', '1', 'Ciencias Y Tecnología');
+
+
+        let subjects = [
+          educacionFisica,
+          lenguaCastellanaYLiteratura1,
+          filosofia,
+          lenguaExtranjera1,
+          matematicas1,
+          biologiaGeologiaYCienciasAmbientales,
+          tecnologiaEIngenieria1,
+          dibujoTecnico1,
+          fisicaYQuimica
+        ]
 
         levelSelectors.forEach(selector => {
           selector.addEventListener('change', function() {
@@ -30,8 +69,29 @@
             modality = selector.id;
             console.log('modality selector id: '+ selector.id)
             console.log('modality: ' + modality);
-          })
+          });
         });
+
+        modalitySelectors.forEach(selector => {
+          selector.addEventListener('change', function() {
+            updateSubjectSelectors();
+          });
+        });
+
+        function updateSubjectSelectors() {
+          let html = '';
+          subjects.forEach(subject => {
+            if (subject.level != level) {
+              if (subject.modality == modality || subject.modality == 'all') {
+                html += `
+                  <div>
+                    <input type="checkbox" class="subject-selector" id="${subject.id}" name="${subject.name}"/>
+                    <label for="${subject.id}">${subject.name}</label>
+                  </div>`;
+              }
+            }
+          });
+        }
 
         subjectSelectors.forEach(selector => {
           selector.addEventListener('change', function () {
@@ -128,7 +188,10 @@
     </fieldset>
     <fieldset>
       <legend>Elige tus asignaturas:</legend>
-      
+
+      <div id="subject-set"></div>
+
+
       <div>
         <input type="checkbox" class="subject-selector" id="mti" name="Matemáticas"/>
         <label for="mti">Matemáticas</label>
