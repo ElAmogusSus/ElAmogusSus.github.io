@@ -3,11 +3,33 @@
   <head>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
+        let levelSelectors = document.querySelectorAll('level-selector');
+        let modalitySelectors = document.querySelectorAll('modality-selector');
         let subjectSelectors = document.querySelectorAll('.subject-selector');
         let inputSet = document.getElementById('input-set');
         let results = document.getElementById('results');
 
+        let level = '';
+        let modality = '';
         let grades = {}; // {subject ID : grade}
+
+        levelSelectors.forEach(selector => {
+          selector.addEventListener('change', function() {
+            if(selector.id='first-level') {
+              level = '1';
+            } else {
+              level = '2';
+            }
+            console.log(level);
+          });
+        });
+
+        modalitySelectors.forEach(selector => {
+          selector.addEventListener('change', function() {
+            modality = selector.id;
+            console.log(modality);
+          })
+        });
 
         subjectSelectors.forEach(selector => {
           selector.addEventListener('change', function () {
