@@ -1,0 +1,7 @@
+.container {
+  display: flex;
+  gap: 10px;
+}
+fieldset {
+  width: 45%;
+}

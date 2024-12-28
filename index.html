@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="styles.css">
+
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         let levelSelectors = document.querySelectorAll('.level-selector');
@@ -152,8 +154,8 @@
             }
           });
 
-          commonSelections.forEach(selection => {
-            if(selection.level == level) {
+          commonSelections.forEach(subject => {
+            if(subject.level == level) {
               html += `
                 <div>
                   <input type="checkbox" class="subject-selector" id="${subject.id}" name="${subject.name}"/>
@@ -176,6 +178,7 @@
           subjectSet.innerHTML = html;
           subjectSelectors = document.querySelectorAll('.subject-selector');
           subjectSelectors.forEach(selector => {
+            updateInputs();
             selector.addEventListener('change', function() {
               updateInputs();
             });
