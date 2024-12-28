@@ -176,6 +176,7 @@
           subjectSet.innerHTML = html;
           subjectSelectors = document.querySelectorAll('.subject-selector');
           subjectSelectors.forEach(selector => {
+            updateInputs();
             selector.addEventListener('change', function() {
               updateInputs();
             });
