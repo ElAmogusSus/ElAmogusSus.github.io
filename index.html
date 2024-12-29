@@ -83,7 +83,7 @@
         let economiaEmprendimientoYActividadEmpresarial = new Subject('Economía, Emprendimiento Y Actividad Empresarial', '1', 'General');
 
         // Common Subjects are auto-checked
-        let commonSubjects = [
+        let commonSubjects1 = [
           educacionFisica,
           lenguaCastellanaYLiteratura1,
           filosofia,
@@ -91,7 +91,7 @@
         ]
 
         // Common Selections are not checked
-        let commonSelections = [
+        let commonSelections1 = [
           tecnicasDeLaboratorio,
           iniciacionALaAstronomia,
           segundaLenguaExtranjera1,
@@ -105,7 +105,45 @@
           anatomiaAplicada
         ]
 
-        let subjects = [
+        let sciencesSubjects1 = [
+          matematicas1,
+          biologiaGeologiaYCienciasAmbientales,
+          tecnologiaEIngenieria1,
+          dibujoTecnico1,
+          fisicaYQuimica
+        ]
+
+        let humanitiesSubjects1 = [
+          latin1,
+          matematicasAplicadasALasCCSS1,
+          griego1,
+          economia,
+          haDelMundoContemporaneo,
+          literaturaUniversal
+        ]
+
+        let musicSubjects1 = [
+          analisisMusical1,
+          artesEscenicas1,
+          coroYTecnicaVocal1,
+          lenguajeYPracticaMusical,
+          culturaAudiovisual
+        ]
+
+        let artsSubjects1 = [
+          dibujoArtistico,
+          volumen,
+          culturaAudiovisual,
+          proyectosArtisticos,
+          dibujoTecnicoAplicadoALasArtesPlasticasYAlDiseño1,
+        ]
+
+        let generalSubjects1 = [
+          matematicasGenerales,
+          economiaEmprendimientoYActividadEmpresarial
+        ]
+
+        let allSubjectsButGeneral1 = [
           matematicas1,
           biologiaGeologiaYCienciasAmbientales,
           tecnologiaEIngenieria1,
@@ -126,9 +164,15 @@
           culturaAudiovisual,
           proyectosArtisticos,
           dibujoTecnicoAplicadoALasArtesPlasticasYAlDiseño1,
-          matematicasGenerales,
-          economiaEmprendimientoYActividadEmpresarial
         ]
+
+        let subjectTable1 = {
+          'Ciencias Y Tecnología' : sciencesSubjects1,
+          'Humanidades Y Ciencias Sociales' : humanitiesSubjects1,
+          'Música Y Artes Escénicas' : musicSubjects1,
+          'Artes Plásticas, Imágen Y Diseño' : artsSubjects1,
+          'General' : generalSubjects1,
+        }
 
         levelSelectors.forEach(selector => {
           selector.addEventListener('change', function() {
@@ -155,50 +199,44 @@
           let selectionHtml = '';
           let allModalitySubjectsHtml = '';
 
-          commonSubjects.forEach(subject => {
-            if(subject.level == level) {
+          if (level == '1') {
+            commonSubjects1.forEach(subjects => {
               subjectsHtml += `
                 <div>
                   <input type="checkbox" class="subject-selector" id="${subject.name}"" checked/>
                   <label for="${subject.name}">${subject.name}</label>
                 </div>`;
-            }
-          });
+            });
 
-          commonSelections.forEach(subject => {
-            if(subject.level == level) {
+            commonSelections1.forEach(subject => {
               selectionHtml += `
                 <div>
                   <input type="radio" class="subject-selector" id="${subject.name}" name="globalSubject"/>
                   <label for="${subject.name}">${subject.name}</label>
                 </div>`;
-            }
-          });
+            });
 
-          subjects.forEach(subject => {
-            if (subject.level == level) {
-              if((subject.modality.split('-')).includes(modality)) {
-                subjectsHtml += `
+            subjectTable1[modality].forEach(subject => {
+              subjectsHtml += `
                   <div>
                     <input type="checkbox" class="subject-selector" id="${subject.name}"/>
                     <label for="${subject.name}">${subject.name}</label>
                   </div>`;
-              }
-              if(modality == 'General')
-              {
-                if(subject.modality != General) {
-                  allModalitySubjectsFieldset.hidden = false;
-                  allModalitySubjectsHtml += `
+            });
+            if (modality == 'General') {
+              allModalitySubjectsFieldset.hidden = false;
+              allSubjectsButGeneral1.forEach(subject=> { 
+                allModalitySubjectsHtml += `
                     <div>
                       <input type="checkbox" class="subject-selector" id="${subject.name}"/>
                       <label for="${subject.name}">${subject.name}</label>
                     </div>`;
-                }
-              } else {
-                allModalitySubjectsFieldset.hidden = true;
-              }
+              });
+            } else {
+              allModalitySubjectsFieldset.hidden = true;
             }
-          });
+          }
+
           subjectSet.innerHTML = subjectsHtml;
           selectionSet.innerHTML = selectionHtml;
           allModalitySubjectsSet.innerHTML = allModalitySubjectsHtml;
