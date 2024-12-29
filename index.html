@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="styles.css">
+
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         let levelSelectors = document.querySelectorAll('.level-selector');
@@ -8,6 +10,7 @@
         let subjectSelectors = document.querySelectorAll('.subject-selector');
 
         let subjectSet = document.getElementById('subject-set');
+        let selectionSet = document.getElementById('selection-set');
         let inputSet = document.getElementById('input-set');
         let results = document.getElementById('results');
 
@@ -140,11 +143,12 @@
         });
 
         function updateSubjectSelectors() {
-          let html = '';
+          let subjectsHtml = '';
+          let selectionHtml = '';
 
           commonSubjects.forEach(subject => {
             if(subject.level == level) {
-              html += `
+              subjectsHtml += `
                 <div>
                   <input type="checkbox" class="subject-selector" id="${subject.id}" name="${subject.name}" checked/>
                   <label for="${subject.id}">${subject.name}</label>
@@ -154,7 +158,7 @@
 
           commonSelections.forEach(subject => {
             if(subject.level == level) {
-              html += `
+              selectionHtml += `
                 <div>
                   <input type="checkbox" class="subject-selector" id="${subject.id}" name="${subject.name}"/>
                   <label for="${subject.id}">${subject.name}</label>
@@ -165,7 +169,7 @@
           subjects.forEach(subject => {
             if (subject.level == level) {
               if (subject.modality == modality) {
-                html += `
+                subjectsHtml += `
                   <div>
                     <input type="checkbox" class="subject-selector" id="${subject.id}" name="${subject.name}"/>
                     <label for="${subject.id}">${subject.name}</label>
@@ -173,7 +177,9 @@
               }
             }
           });
-          subjectSet.innerHTML = html;
+          subjectSet.innerHTML = subjectsHtml;
+          selectionSet.innerHTML = selectionHtml;
+
           subjectSelectors = document.querySelectorAll('.subject-selector');
           subjectSelectors.forEach(selector => {
             updateInputs();
@@ -270,11 +276,17 @@
       </div>
 
     </fieldset>
-    <fieldset>
-      <legend>Elige tus asignaturas:</legend>
 
-      <div id="subject-set"></div>
-    </fieldset>
+    <div class="container">
+      <fieldset>
+        <legend>Elige tus asignaturas:</legend>
+        <div id="subject-set"></div>
+      </fieldset>
+      <fieldset>
+        <legend>Elige tus optativas:</legend>
+        <div id="selection-set"></div>
+      </fieldset>
+    </div>
 
     <div id="input-set"></div>
 
