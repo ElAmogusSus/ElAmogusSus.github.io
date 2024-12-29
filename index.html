@@ -168,7 +168,7 @@
 
           subjects.forEach(subject => {
             if (subject.level == level) {
-              if (subject.modality == modality) {
+              if((subject.modality.split('-')).includes(modality)) {
                 subjectsHtml += `
                   <div>
                     <input type="checkbox" class="subject-selector" id="${subject.id}" name="${subject.name}"/>
