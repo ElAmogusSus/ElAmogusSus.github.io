@@ -150,6 +150,7 @@
         });
 
         function updateSubjectSelectors() {
+          var start = new Date();
           let subjectsHtml = '';
           let selectionHtml = '';
           let allModalitySubjectsHtml = '';
@@ -209,6 +210,8 @@
               updateInputs();
             });
           });
+          var end = new Date()
+          console.log(end - start);
         }
         
         function updateInputs()
