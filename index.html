@@ -11,6 +11,8 @@
 
         let subjectSet = document.getElementById('subject-set');
         let selectionSet = document.getElementById('selection-set');
+        let allModalitySubjectsSet = document.getElementById('all-modality-subjects-set');
+        let allModalitySubjectsFieldset = document.getElementById('all-modality-subjects-fieldset');
         let inputSet = document.getElementById('input-set');
         let results = document.getElementById('results');
 
@@ -76,6 +78,10 @@
         let proyectosArtisticos = new Subject('Proyectos Artísticos', '1', 'Artes Plásticas, Imágen Y Diseño');
         let dibujoTecnicoAplicadoALasArtesPlasticasYAlDiseño1 = new Subject('Dibujo Técnico Aplicado A Las Artes Plasticas Y Al Diseño I', '1', 'Artes Plásticas, Imágen Y Diseño');
 
+        //   General
+        let matematicasGenerales = new Subject('Matemáticas Generales', '1', 'General');
+        let economiaEmprendimientoYActividadEmpresarial = new Subject('Economía, Emprendimiento Y Actividad Empresarial', '1', 'General');
+
         // Common Subjects are auto-checked
         let commonSubjects = [
           educacionFisica,
@@ -119,7 +125,9 @@
           volumen,
           culturaAudiovisual,
           proyectosArtisticos,
-          dibujoTecnicoAplicadoALasArtesPlasticasYAlDiseño1
+          dibujoTecnicoAplicadoALasArtesPlasticasYAlDiseño1,
+          matematicasGenerales,
+          economiaEmprendimientoYActividadEmpresarial
         ]
 
         levelSelectors.forEach(selector => {
@@ -174,10 +182,19 @@
                     <label for="${subject.name}">${subject.name}</label>
                   </div>`;
               }
+              if(modality == 'General')
+              {
+                allModalitySubjectsHtml += `
+                  <div>
+                    <input type="checkbox" class="subject-selector" id="${subject.name}"/>
+                    <label for="${subject.name}">${subject.name}</label>
+                  </div>`;
+              }
             }
           });
           subjectSet.innerHTML = subjectsHtml;
           selectionSet.innerHTML = selectionHtml;
+          allModalitySubjectsSet.innerHTML = allModalitySubjectsHtml;
 
           subjectSelectors = document.querySelectorAll('.subject-selector');
           subjectSelectors.forEach(selector => {
@@ -282,8 +299,12 @@
         <div id="subject-set"></div>
       </fieldset>
       <fieldset>
-        <legend>Elige tus optativas:</legend>
+        <legend>Elige una optativa:</legend>
         <div id="selection-set"></div>
+      </fieldset>
+      <fieldset id="all-modality-subjects-fieldset">
+        <legend>Asignaturas de otras modalidades:</legend>
+        <div id="all-modality-subjects-set"></div>
       </fieldset>
     </div>
 
