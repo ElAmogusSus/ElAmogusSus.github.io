@@ -185,12 +185,14 @@
               }
               if(modality == 'General')
               {
-                allModalitySubjectsFieldset.hidden = false;
-                allModalitySubjectsHtml += `
-                  <div>
-                    <input type="checkbox" class="subject-selector" id="${subject.name}"/>
-                    <label for="${subject.name}">${subject.name}</label>
-                  </div>`;
+                if(subject.modality != General) {
+                  allModalitySubjectsFieldset.hidden = false;
+                  allModalitySubjectsHtml += `
+                    <div>
+                      <input type="checkbox" class="subject-selector" id="${subject.name}"/>
+                      <label for="${subject.name}">${subject.name}</label>
+                    </div>`;
+                }
               } else {
                 allModalitySubjectsFieldset.hidden = true;
               }
