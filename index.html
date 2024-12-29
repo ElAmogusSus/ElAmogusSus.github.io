@@ -149,8 +149,8 @@
             if(subject.level == level) {
               subjectsHtml += `
                 <div>
-                  <input type="checkbox" class="subject-selector" id="${subject.id}"" checked/>
-                  <label for="${subject.id}">${subject.id}</label>
+                  <input type="checkbox" class="subject-selector" id="${subject.name}"" checked/>
+                  <label for="${subject.name}">${subject.name}</label>
                 </div>`;
             }
           });
@@ -159,8 +159,8 @@
             if(subject.level == level) {
               selectionHtml += `
                 <div>
-                  <input type="checkbox" class="subject-selector" id="${subject.id}" name="globalSubject"/>
-                  <label for="${subject.id}">${subject.id}</label>
+                  <input type="checkbox" class="subject-selector" id="${subject.name}" name="globalSubject"/>
+                  <label for="${subject.name}">${subject.name}</label>
                 </div>`;
             }
           });
@@ -170,8 +170,8 @@
               if((subject.modality.split('-')).includes(modality)) {
                 subjectsHtml += `
                   <div>
-                    <input type="checkbox" class="subject-selector" id="${subject.id}"/>
-                    <label for="${subject.id}">${subject.id}</label>
+                    <input type="checkbox" class="subject-selector" id="${subject.name}"/>
+                    <label for="${subject.name}">${subject.name}</label>
                   </div>`;
               }
             }
