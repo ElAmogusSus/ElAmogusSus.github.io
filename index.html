@@ -365,6 +365,11 @@
           let selectionHtml = '';
           let allModalitySubjectsHtml = '';
 
+          console.log('Modality:', modality);
+console.log('Subject Table:', subjectTable2);
+console.log('Selected Subjects:', subjectTable2[modality]);
+
+
           if (level == first) {
             commonSubjects1.forEach(subject => {
               subjectsHtml += `
