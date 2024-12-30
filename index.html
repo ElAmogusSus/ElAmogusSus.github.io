@@ -365,9 +365,19 @@
           let selectionHtml = '';
           let allModalitySubjectsHtml = '';
 
-          console.log('Modality:', modality);
-console.log('Subject Table:', subjectTable2);
-console.log('Selected Subjects:', subjectTable2[modality]);
+          console.log('Debug Info:');
+console.log('subjectTable2:', subjectTable2);
+console.log('modality:', modality);
+
+if (!subjectTable2) {
+  console.error('subjectTable2 is undefined!');
+} else if (!modality) {
+  console.error('modality is undefined!');
+} else if (!subjectTable2[modality]) {
+  console.error(`subjectTable2 does not contain key: '${modality}'`);
+} else {
+  console.log('subjectTable2[modality]:', subjectTable2[modality]);
+}
 
 
           if (level == first) {
