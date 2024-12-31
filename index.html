@@ -68,7 +68,6 @@
           selector.addEventListener('change', function() {
             modality = selector.id;
             updateSubjectSelectors();
-            updateInputs();
           });
         });
 
@@ -157,6 +156,7 @@
           selectionSet.innerHTML = selectionHtml;
           allModalitySubjectsSet.innerHTML = allModalitySubjectsHtml;
 
+          updateInputs();
           subjectSelectors = document.querySelectorAll('.subject-selector');
           subjectSelectors.forEach(selector => {
             selector.addEventListener('change', function() {
