@@ -45,12 +45,12 @@
         let allModalitySubjectsFieldset = document.getElementById('all-modality-subjects-fieldset');
         let inputSet = document.getElementById('input-set');
         let results = document.getElementById('results');
-        let averageBach = 0;
 
         let level = '';
         let modality = '';
 
         let grades = {}; // {subject ID : grade}
+        let chosenSubjects = [];
 
         levelSelectors.forEach(selector => {
           selector.addEventListener('change', function() {
@@ -68,6 +68,7 @@
           selector.addEventListener('change', function() {
             modality = selector.id;
             updateSubjectSelectors();
+            updateInputs();
           });
         });
 
@@ -158,8 +159,15 @@
 
           subjectSelectors = document.querySelectorAll('.subject-selector');
           subjectSelectors.forEach(selector => {
-            updateInputs();
             selector.addEventListener('change', function() {
+              if(selector.checked) {
+                chosenSubjects.push(selector.id);
+              } else {
+                let index = chosenSubjects.indexOf(selector.id);
+                if(index > -1) {
+                  chosenSubjects.splice(index, 1);
+                }
+              }
               updateInputs();
             });
           });
@@ -212,7 +220,7 @@
           } else {
             average = 0;
           }
-          results.innerHTML = `Nota final: ${average}`;
+          results.innerHTML = `Nota media: ${average}`;
         }
       });
     </script>
@@ -272,8 +280,6 @@
 
     <div id="input-set"></div>
 
-    <div>
-      <p id="results"></p>
-    </div>
+    <p id="results"></p>
   </body>
 </html>
