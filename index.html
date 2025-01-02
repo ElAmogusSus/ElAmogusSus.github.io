@@ -59,6 +59,7 @@
             } else {
               level = second;
             }
+            instantiateSubjectSelectors();
             updateSubjectSelectors();
             updateInputs();
             calculateAverage();
@@ -68,14 +69,15 @@
         modalitySelectors.forEach(selector => {
           selector.addEventListener('change', function() {
             modality = selector.id;
+            instantiateSubjectSelectors();
             updateSubjectSelectors();
             updateInputs();
             calculateAverage();
           });
         });
-
-        function updateSubjectSelectors() {
-          var start = new Date();
+        
+        function instantiateSubjectSelectors()
+        {
           let subjectsHtml = '';
           let selectionHtml = '';
           let allModalitySubjectsHtml = '';
@@ -158,8 +160,11 @@
           subjectSet.innerHTML = subjectsHtml;
           selectionSet.innerHTML = selectionHtml;
           allModalitySubjectsSet.innerHTML = allModalitySubjectsHtml;
+        }
 
+        function updateSubjectSelectors() {
           subjectSelectors = document.querySelectorAll('.subject-selector');
+          
           subjectSelectors.forEach(selector => {
             selector.addEventListener('change', function() {
               if(selector.checked) {
@@ -174,10 +179,8 @@
               calculateAverage();
             });
           });
-          var end = new Date()
-          console.log(end - start);
         }
-        
+
         function updateInputs()
         {
           let html = '';
