@@ -59,24 +59,24 @@
             } else {
               level = second;
             }
-            createSubjectSelectors();
-            updateSubjectSelectors();
-            updateInputs();
-            calculateAverage();
+            CreateSubjectSelectors();
+            UpdateSubjectSelectors();
+            UpdateInputs();
+            CalculateAverage();
           });
         });
 
         modalitySelectors.forEach(selector => {
           selector.addEventListener('change', function() {
             modality = selector.id;
-            createSubjectSelectors();
-            updateSubjectSelectors();
-            updateInputs();
-            calculateAverage();
+            CreateSubjectSelectors();
+            UpdateSubjectSelectors();
+            UpdateInputs();
+            CalculateAverage();
           });
         });
         
-        function createSubjectSelectors()
+        function CreateSubjectSelectors()
         {
           let subjectsHtml = '';
           let selectionHtml = '';
@@ -162,7 +162,7 @@
           allModalitySubjectsSet.innerHTML = allModalitySubjectsHtml;
         }
 
-        function updateSubjectSelectors() {
+        function UpdateSubjectSelectors() {
           subjectSelectors = document.querySelectorAll('.subject-selector');
 
           subjectSelectors.forEach(selector => {
@@ -175,13 +175,13 @@
                   chosenSubjects.splice(index, 1);
                 }
               }
-              updateInputs();
-              calculateAverage();
+              UpdateInputs();
+              CalculateAverage();
             });
           });
         }
 
-        function updateInputs()
+        function UpdateInputs()
         {
           let html = '';
           subjectSelectors.forEach(selector => {
@@ -195,22 +195,22 @@
             }
           });
           inputSet.innerHTML = html;
-          attachInputListeners();
+          AttachInputListeners();
         }
 
-        function attachInputListeners()
+        function AttachInputListeners()
         {
           let inputs = document.querySelectorAll('.grade');
           inputs.forEach(input => {
             input.addEventListener('input', function() {
               let subjectId = input.id.split('-')[0];
               grades[subjectId] = parseFloat(input.value) || ''; // Save grade
-              calculateAverage();
+              CalculateAverage();
             });
           });
         }
 
-        function calculateAverage() {
+        function CalculateAverage() {
           let inputs = document.querySelectorAll('.grade');
           let sum = 0;
           let count = 0;
