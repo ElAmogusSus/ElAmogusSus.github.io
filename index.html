@@ -59,7 +59,7 @@
             } else {
               level = second;
             }
-            instantiateSubjectSelectors();
+            createSubjectSelectors();
             updateSubjectSelectors();
             updateInputs();
             calculateAverage();
@@ -69,14 +69,14 @@
         modalitySelectors.forEach(selector => {
           selector.addEventListener('change', function() {
             modality = selector.id;
-            instantiateSubjectSelectors();
+            createSubjectSelectors();
             updateSubjectSelectors();
             updateInputs();
             calculateAverage();
           });
         });
         
-        function instantiateSubjectSelectors()
+        function createSubjectSelectors()
         {
           let subjectsHtml = '';
           let selectionHtml = '';
@@ -164,7 +164,7 @@
 
         function updateSubjectSelectors() {
           subjectSelectors = document.querySelectorAll('.subject-selector');
-          
+
           subjectSelectors.forEach(selector => {
             selector.addEventListener('change', function() {
               if(selector.checked) {
