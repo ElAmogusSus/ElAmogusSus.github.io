@@ -86,32 +86,44 @@
             commonSubjects1.forEach(subject => {
               subjectsHtml += `
                 <div>
-                  <input type="checkbox" class="subject-selector" id="${subject.name}"" checked/>
+                  <input type="checkbox" class="subject-selector" id="${subject.name}" checked/>
                   <label for="${subject.name}">${subject.name}</label>
                 </div>`;
             });
 
             commonSelections1.forEach(subject => {
+              let isChecked = '';
+              if(chosenSubjects.includes(subject.id)) {
+                isChecked = 'checked';
+              }
               selectionHtml += `
                 <div>
-                  <input type="radio" class="subject-selector" id="${subject.name}" name="globalSubject"/>
+                  <input type="radio" class="subject-selector" id="${subject.name}" name="globalSubject" ${isChecked}/>
                   <label for="${subject.name}">${subject.name}</label>
                 </div>`;
             });
 
             subjectTable1[modality].forEach(subject => {
+              let isChecked = '';
+              if(chosenSubjects.includes(subject.id)) {
+                isChecked = 'checked';
+              }
               subjectsHtml += `
                   <div>
-                    <input type="checkbox" class="subject-selector" id="${subject.name}"/>
+                    <input type="checkbox" class="subject-selector" id="${subject.name}" ${isChecked}/>
                     <label for="${subject.name}">${subject.name}</label>
                   </div>`;
             });
             if (modality == general) {
               allModalitySubjectsFieldset.hidden = false;
               allSubjectsButGeneral1.forEach(subject=> { 
+                let isChecked = '';
+                if(chosenSubjects.includes(subject.id)) {
+                  isChecked = 'checked';
+                }
                 allModalitySubjectsHtml += `
                     <div>
-                      <input type="checkbox" class="subject-selector" id="${subject.name}"/>
+                      <input type="checkbox" class="subject-selector" id="${subject.name}" ${isChecked}/>
                       <label for="${subject.name}">${subject.name}</label>
                     </div>`;
               });
@@ -129,26 +141,38 @@
             });
 
             commonSelections2.forEach(subject => {
+              let isChecked = '';
+              if(chosenSubjects.includes(subject.id)) {
+                isChecked = 'checked';
+              }
               selectionHtml += `
                 <div>
-                  <input type="radio" class="subject-selector" id="${subject.name}" name="globalSubject"/>
+                  <input type="radio" class="subject-selector" id="${subject.name}" name="globalSubject" ${isChecked}/>
                   <label for="${subject.name}">${subject.name}</label>
                 </div>`;
             });
 
             subjectTable2[modality].forEach(subject => {
+              let isChecked = '';
+              if(chosenSubjects.includes(subject.id)) {
+                isChecked = 'checked';
+              }
               subjectsHtml += `
                   <div>
-                    <input type="checkbox" class="subject-selector" id="${subject.name}"/>
+                    <input type="checkbox" class="subject-selector" id="${subject.name}" ${isChecked}/>
                     <label for="${subject.name}">${subject.name}</label>
                   </div>`;
             });
             if (modality == general) {
               allModalitySubjectsFieldset.hidden = false;
               allSubjectsButGeneral2.forEach(subject=> { 
+                let isChecked = '';
+                if(chosenSubjects.includes(subject.id)) {
+                  isChecked = 'checked';
+                }
                 allModalitySubjectsHtml += `
                     <div>
-                      <input type="checkbox" class="subject-selector" id="${subject.name}"/>
+                      <input type="checkbox" class="subject-selector" id="${subject.name}" ${isChecked}/>
                       <label for="${subject.name}">${subject.name}</label>
                     </div>`;
               });
