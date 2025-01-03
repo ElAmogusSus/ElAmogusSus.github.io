@@ -93,7 +93,7 @@
 
             commonSelections1.forEach(subject => {
               let isChecked = '';
-              if(chosenSubjects.includes(subject.id)) {
+              if(chosenSubjects.includes(subject.name)) {
                 isChecked = 'checked';
               }
               selectionHtml += `
@@ -105,7 +105,7 @@
 
             subjectTable1[modality].forEach(subject => {
               let isChecked = '';
-              if(chosenSubjects.includes(subject.id)) {
+              if(chosenSubjects.includes(subject.name)) {
                 isChecked = 'checked';
               }
               subjectsHtml += `
@@ -118,7 +118,7 @@
               allModalitySubjectsFieldset.hidden = false;
               allSubjectsButGeneral1.forEach(subject=> { 
                 let isChecked = '';
-                if(chosenSubjects.includes(subject.id)) {
+                if(chosenSubjects.includes(subject.name)) {
                   isChecked = 'checked';
                 }
                 allModalitySubjectsHtml += `
@@ -142,7 +142,7 @@
 
             commonSelections2.forEach(subject => {
               let isChecked = '';
-              if(chosenSubjects.includes(subject.id)) {
+              if(chosenSubjects.includes(subject.name)) {
                 isChecked = 'checked';
               }
               selectionHtml += `
@@ -154,7 +154,7 @@
 
             subjectTable2[modality].forEach(subject => {
               let isChecked = '';
-              if(chosenSubjects.includes(subject.id)) {
+              if(chosenSubjects.includes(subject.name)) {
                 isChecked = 'checked';
               }
               subjectsHtml += `
@@ -167,7 +167,7 @@
               allModalitySubjectsFieldset.hidden = false;
               allSubjectsButGeneral2.forEach(subject=> { 
                 let isChecked = '';
-                if(chosenSubjects.includes(subject.id)) {
+                if(chosenSubjects.includes(subject.name)) {
                   isChecked = 'checked';
                 }
                 allModalitySubjectsHtml += `
@@ -199,7 +199,6 @@
                   chosenSubjects.splice(index, 1);
                 }
               }
-              console.log(chosenSubjects);
               UpdateInputs();
               CalculateAverage();
             });
