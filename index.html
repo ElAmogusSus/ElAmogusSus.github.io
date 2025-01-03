@@ -51,6 +51,7 @@
 
         let grades = {}; // {subject ID : grade}
         let chosenSubjects = [];
+        let chosenSelection = '';
 
         levelSelectors.forEach(selector => {
           selector.addEventListener('change', function() {
@@ -191,6 +192,12 @@
 
           subjectSelectors.forEach(selector => {
             selector.addEventListener('change', function() {
+              if(selector.type == 'radio') {
+                chosenSelection = selector.id;
+                UpdateInputs();
+                CalculateAverage();
+                return;
+              }
               if(selector.checked) {
                 chosenSubjects.push(selector.id);
               } else {
