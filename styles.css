@@ -1,3 +1,11 @@
+p {
+  display: block;
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .container {
   display: flex;
   gap: 10px;
@@ -8,5 +16,9 @@ fieldset {
 
 .inline {
   display: inline;
-  padding: 10px;
+  padding-right: 10px;
+}
+.grade-container {
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
