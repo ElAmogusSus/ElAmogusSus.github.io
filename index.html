@@ -192,6 +192,12 @@
 
           subjectSelectors.forEach(selector => {
             selector.addEventListener('change', function() {
+              if(commonSelections1.includes(selector.id)) {
+                chosenSelection = selector.id;
+                UpdateInputs();
+                CalculateAverage();
+                return;
+              }
               if(selector.checked) {
                 chosenSubjects.push(selector.id);
               } else {
