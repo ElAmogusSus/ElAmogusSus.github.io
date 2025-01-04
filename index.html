@@ -258,6 +258,7 @@
           subjectSelectors.forEach(selector => {
             if(selector.checked) {
               let value = grades[selector.id] || ''; // Retain saved grade
+              // "-grade" is necesary because <label> would get confused otherwise
               html += `
                 <div>
                   <input class="grade" id="${selector.id}-grade" type="number" max="10" min="0" value="${value}">
@@ -274,6 +275,13 @@
           let inputs = document.querySelectorAll('.grade');
           inputs.forEach(input => {
             input.addEventListener('input', function() {
+              if(input.value < 0) {
+                input.value = 0;
+              }
+              if(input.value > 10) {
+                input.value = 10;
+              }
+              
               let subjectId = input.id.split('-')[0];
               grades[subjectId] = parseFloat(input.value) || ''; // Save grade
               CalculateAverage();
