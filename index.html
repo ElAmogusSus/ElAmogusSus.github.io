@@ -51,7 +51,8 @@
 
         let grades = {}; // {subject ID : grade}
         let chosenSubjects = [];
-        let chosenSelection = '';
+        let chosenSelection1 = '';
+        let chosenSelection2
 
         levelSelectors.forEach(selector => {
           selector.addEventListener('change', function() {
@@ -94,7 +95,7 @@
 
             commonSelections1.forEach(subject => {
               let isChecked = '';
-              if(chosenSubjects.includes(subject.name)) {
+              if(chosenSelection1 == subject.name) {
                 isChecked = 'checked';
               }
               selectionHtml += `
@@ -143,7 +144,7 @@
 
             commonSelections2.forEach(subject => {
               let isChecked = '';
-              if(chosenSubjects.includes(subject.name)) {
+              if(chosenSelection2 = subject.name) {
                 isChecked = 'checked';
               }
               selectionHtml += `
@@ -192,12 +193,26 @@
 
           subjectSelectors.forEach(selector => {
             selector.addEventListener('change', function() {
-              if(commonSelections1.includes(selector.id)) {
-                chosenSelection = selector.id;
-                UpdateInputs();
-                CalculateAverage();
-                return;
+              if(level == first) {
+                commonSelections1.forEach(subject => {
+                  if(subject.name == selector.id) {
+                    chosenSelection1 = selector.id;
+                    UpdateInputs();
+                    CalculateAverage();
+                    return;
+                  }
+                });
+              } else {
+                commonSelections2.forEach(subject => {
+                  if(subject.name == selector.id) {
+                    chosenselection2 = selector.id;
+                    UpdateInputs();
+                    CalculateAverage();
+                    return;
+                  }
+                });
               }
+
               if(selector.checked) {
                 chosenSubjects.push(selector.id);
               } else {
