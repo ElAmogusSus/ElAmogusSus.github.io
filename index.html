@@ -44,12 +44,16 @@
         let allModalitySubjectsSet = document.getElementById('all-modality-subjects-set');
         let allModalitySubjectsFieldset = document.getElementById('all-modality-subjects-fieldset');
         let inputSet = document.getElementById('input-set');
-        let results = document.getElementById('results');
+        let results1 = document.getElementById('results1');
+        let results2 = document.getElementById('results2');
+        let resultsBach = document.getElementById('results-bach');
 
         let level = '';
         let modality = '';
 
         let grades = {}; // {subject ID : grade}
+        let average1 = 0;
+        let average2 = 0;
         let chosenModality1 = '';
         let chosenModality2 = '';
         let chosenSubjects = [];
@@ -289,11 +293,19 @@
 
           let average = 0;
           if (count > 0) {
-            average = (sum/count).toFixed(2)
+            average = (sum/count)
           } else {
             average = 0;
           }
-          results.innerHTML = `Nota media: ${average}`;
+
+          if(level == first) {
+            average1 = average;
+            results1.innerHTML = `Nota media 1º: ${average.toFixed(2)}`;
+          } else {
+            average2 = average;
+            results2.innerHTML = `Nota media 2º: ${average.toFixed(2)}`;
+          }
+          resultsBach.innerHTML = ((average1 + average2)/2).toFixed(2);
         }
       });
     </script>
@@ -353,6 +365,9 @@
 
     <div id="input-set"></div>
 
-    <p id="results"></p>
+    <p id="results1"></p>
+    <p id="results2"></p>
+    <p id="results-bach"></p>
+
   </body>
 </html>
