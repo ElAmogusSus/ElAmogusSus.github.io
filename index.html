@@ -77,7 +77,6 @@
 
         modalitySelectors.forEach(selector => {
           selector.addEventListener('change', function() {
-            modality = selector.id;
             if(level == first) {
               chosenModality1 = selector.id;
             } else {
@@ -118,7 +117,7 @@
                 </div>`;
             });
 
-            subjectTable1[modality].forEach(subject => {
+            subjectTable1[chosenModality1].forEach(subject => {
               let isChecked = '';
               if(chosenSubjects.includes(subject.name)) {
                 isChecked = 'checked';
@@ -129,7 +128,7 @@
                     <label for="${subject.name}">${subject.name}</label>
                   </div>`;
             });
-            if (modality == general) {
+            if (chosenModality1 == general) {
               allModalitySubjectsFieldset.hidden = false;
               allSubjectsButGeneral1.forEach(subject=> { 
                 let isChecked = '';
@@ -167,7 +166,7 @@
                 </div>`;
             });
 
-            subjectTable2[modality].forEach(subject => {
+            subjectTable2[chosenModality2].forEach(subject => {
               let isChecked = '';
               if(chosenSubjects.includes(subject.name)) {
                 isChecked = 'checked';
@@ -178,7 +177,7 @@
                     <label for="${subject.name}">${subject.name}</label>
                   </div>`;
             });
-            if (modality == general) {
+            if (chosenModality2 == general) {
               allModalitySubjectsFieldset.hidden = false;
               allSubjectsButGeneral2.forEach(subject=> { 
                 let isChecked = '';
