@@ -13,12 +13,3 @@ p {
 fieldset {
   width: 45%;
 }
-
-.inline {
-  display: inline;
-  padding-right: 10px;
-}
-.grade-container {
-  padding-top: 5px;
-  padding-bottom: 5px;
-}

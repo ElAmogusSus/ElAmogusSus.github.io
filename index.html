@@ -300,10 +300,10 @@
 
           if(level == first) {
             average1 = average;
-            results1.innerHTML = `Nota media 1ºBach: ${average.toFixed(2)}`;
+            results1.innerHTML = `Media de 1º Bach: ${average.toFixed(2)}`;
           } else {
             average2 = average;
-            results2.innerHTML = `Nota media 2ºBach: ${average.toFixed(2)}`;
+            results2.innerHTML = `Media de 2º Bach: ${average.toFixed(2)}`;
           }
           resultsBach.innerHTML = `Nota media ambos bachilleratos: ${((average1 + average2)/2).toFixed(2)}`;
         }
@@ -365,10 +365,8 @@
 
     <div id="input-set"></div>
 
-  <div class="grade-container">
-    <p class="inline" id="results1"></p>
-    <p class="inline" id="results2"></p>
-  </div>
+    <p id="results1"></p>
+    <p id="results2"></p>
     <p id="results-bach"></p>
 
   </body>
