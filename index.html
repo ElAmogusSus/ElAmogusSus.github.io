@@ -50,9 +50,11 @@
         let modality = '';
 
         let grades = {}; // {subject ID : grade}
+        let chosenModality1 = '';
+        let chosenModality2 = '';
         let chosenSubjects = [];
         let chosenSelection1 = '';
-        let chosenSelection2
+        let chosenSelection2 = '';
 
         levelSelectors.forEach(selector => {
           selector.addEventListener('change', function() {
@@ -71,6 +73,12 @@
         modalitySelectors.forEach(selector => {
           selector.addEventListener('change', function() {
             modality = selector.id;
+            if(level == first) {
+              chosenModality1 = selector.id;
+            } else {
+              chosenmodality2 = selector.id;
+            }
+
             CreateSubjectSelectors();
             UpdateSubjectSelectors();
             UpdateInputs();
