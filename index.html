@@ -60,9 +60,14 @@
           selector.addEventListener('change', function() {
             if(selector.id == 'first-level') {
               level = first;
+              let targetModalitySelector = document.getElementById(chosenModality1);
+              targetModalitySelector.checked = true;
             } else {
               level = second;
+              let targetModalitySelector = document.getElementById(chosenModality1);
+              targetModalitySelector.checked = true;
             }
+            
             CreateSubjectSelectors();
             UpdateSubjectSelectors();
             UpdateInputs();
@@ -76,7 +81,7 @@
             if(level == first) {
               chosenModality1 = selector.id;
             } else {
-              chosenmodality2 = selector.id;
+              chosenModality2 = selector.id;
             }
 
             CreateSubjectSelectors();
