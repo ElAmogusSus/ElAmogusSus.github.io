@@ -5,3 +5,8 @@
 fieldset {
   width: 45%;
 }
+
+.inline {
+  display: inline;
+  padding: 10px;
+}
