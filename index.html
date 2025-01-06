@@ -318,8 +318,8 @@
             average2 = average;
             results2.innerHTML = `Media de 2º Bach: ${average.toFixed(2)}`;
           }
+          averageBach = (average1 + average2) / 2
           if(average1 != 0 && average2 != 0) {
-            averageBach = (average1 + average2) / 2
             resultsBach.innerHTML = `Nota media ambos bachilleratos: ${((average1 + average2)/2).toFixed(2)}`;
             updateNeededGrade();
           }
