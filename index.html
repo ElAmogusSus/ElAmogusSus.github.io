@@ -327,10 +327,10 @@
 
         objectiveGrade.addEventListener('input', function() {
           if(objectiveGrade.value < 0) {
-            input.value = 0;
+            objectiveGrade.value = 0;
           }
           if(objectiveGrade.value > 14) {
-            input.value = 14;
+            objectiveGrade.value = 14;
           }
           updateNeededGrade();
         });
