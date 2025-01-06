@@ -49,7 +49,7 @@
         let resultsBach = document.getElementById('results-bach');
 
         let objectiveGrade = document.getElementById('objective-grade')
-        let neededGradeInput = document.getElementById('needed-grade');
+        let neededGrade = document.getElementById('needed-grade');
         let neededGradeInfo = document.getElementById('needed-grade-info');
 
         let level = '';
@@ -340,14 +340,15 @@
           if(objectiveGrade.value != 0) {
             let needed = objectiveGrade.value - bach;
             if(needed > 0) {
-              neededGradeInput.innerHTML = `Necesitas ${needed.toFixed(3)} puntos de la PAU y las ponderaciones`;
+              neededGrade.innerHTML = `Necesitas ${needed.toFixed(3)} puntos de la PAU y las ponderaciones`;
             } else {
-              neededGradeInput.innerHTML = `Has alcanzado la nota de corte con solo tu nota de bachillerato, técnicamente,
+              neededGrade.innerHTML = `Has alcanzado la nota de corte con solo tu nota de bachillerato, técnicamente,
                 pasarías incluso con un 0 en la PAU y en las ponderaciones, pero eso no significa que no deberías de esforzarte
                 en estos exámenes`;
             }
             neededGradeInfo.innerHTML = `Bachilleratos: (${average1.toFixed(2)} + ${average2.toFixed(2)}) * 0.60 = ${bach.toFixed(3)}`
           } else {
+            neededGrade.innerHTML = ``;
             neededGradeInfo.innerHTML = `Inserte la nota de corte deseada en el cuadro superior. Puede encontrarla buscando "notas de corte (universidad)"`;
           }
         }
