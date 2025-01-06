@@ -47,6 +47,7 @@
         let results1 = document.getElementById('results1');
         let results2 = document.getElementById('results2');
         let resultsBach = document.getElementById('results-bach');
+        let objectiveGrade = document.getElementById('objective-grade')
 
         let level = '';
         let modality = '';
@@ -317,6 +318,15 @@
             resultsBach.innerHTML = `Nota media ambos bachilleratos: ${((average1 + average2)/2).toFixed(2)}`;
           }
         }
+
+        objectiveGrade.addEventListener('input', function() {
+          if(input.value < 0) {
+            input.value = 0;
+          }
+          if(input.value > 14) {
+            input.value = 14;
+          }
+        });
       });
     </script>
   </head>
@@ -380,7 +390,7 @@
     <p id="results-bach"></p>
 
     <div>
-      <input class="grade" id="objective-grade" type="number" max="10" min="0" value="${value}">
+      <input id="objective-grade" type="number" max="10" min="0" step="0.001">
       <label for="objective-grade">Nota de corte de tu grado/carrera</label>
     </div>`;
 
