@@ -50,6 +50,7 @@
 
         let objectiveGrade = document.getElementById('objective-grade')
         let neededGradeInput = document.getElementById('needed-grade');
+        let neededGradeInfo = document.getElementById('needed-grade-info');
 
         let level = '';
         let modality = '';
@@ -325,12 +326,13 @@
         }
 
         function updateNeededGrade() {
-          let foo = averageBach * 0.6;
+          let bach = averageBach * 0.6;
           if(objectiveGrade.value != 0) {
-            let needed = objectiveGrade.value - foo;
+            let needed = objectiveGrade.value - bach;
             neededGradeInput.innerHTML = `Necesitas ${needed.toFixed(3)} puntos de la PAU y las ponderaciones`;
+            neededGradeInfo.innerHTML = `Bachilleratos: (${average1.toFixed(2)} + ${average2.toFixed(2)}) * 0.60 = ${bach}`
           } else {
-
+            neededGradeInfo.innerHTML = `Inserte la nota de corte deseada en el cuadro superior. Puede encontrarla buscando "notas de corte (universidad)"`;
           }
         }
 
@@ -341,6 +343,7 @@
           if(input.value > 14) {
             input.value = 14;
           }
+          updateNeededGrade();
         });
       });
     </script>
@@ -407,9 +410,10 @@
     <div>
       <input id="objective-grade" type="number" max="14" min="0" step="0.001">
       <label for="objective-grade">Nota de corte de tu grado/carrera</label>
-    </div>`;
+    </div>
 
     <p id="needed-grade"></p>
+    <p id="needed-grade-info"></p>
 
   </body>
 </html>
