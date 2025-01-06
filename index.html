@@ -325,26 +325,26 @@
           }
         }
 
+        objectiveGrade.addEventListener('input', function() {
+          if(objectiveGrade.value < 0) {
+            input.value = 0;
+          }
+          if(objectiveGrade.value > 14) {
+            input.value = 14;
+          }
+          updateNeededGrade();
+        });
+
         function updateNeededGrade() {
           let bach = averageBach * 0.6;
           if(objectiveGrade.value != 0) {
             let needed = objectiveGrade.value - bach;
             neededGradeInput.innerHTML = `Necesitas ${needed.toFixed(3)} puntos de la PAU y las ponderaciones`;
-            neededGradeInfo.innerHTML = `Bachilleratos: (${average1.toFixed(2)} + ${average2.toFixed(2)}) * 0.60 = ${bach}`
+            neededGradeInfo.innerHTML = `Bachilleratos: (${average1.toFixed(2)} + ${average2.toFixed(2)}) * 0.60 = ${bach.toFixed(3)}`
           } else {
             neededGradeInfo.innerHTML = `Inserte la nota de corte deseada en el cuadro superior. Puede encontrarla buscando "notas de corte (universidad)"`;
           }
         }
-
-        objectiveGrade.addEventListener('input', function() {
-          if(input.value < 0) {
-            input.value = 0;
-          }
-          if(input.value > 14) {
-            input.value = 14;
-          }
-          updateNeededGrade();
-        });
       });
     </script>
   </head>
