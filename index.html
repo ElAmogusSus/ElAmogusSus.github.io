@@ -358,40 +358,43 @@
   <body>
     <h1>Calculadora de Nota Media</h1>
 
-    <fieldset>
-      <legend>Elige tu nivel de bachillerato:</legend>
-
-      <input type="radio" class="level-selector" id="first-level" name="level-selector">
-      <label for="first-level">1º de Bach</label>
-      <input type="radio" class="level-selector" id="second-level" name="level-selector">
-      <label for="second-level">2º de Bach</label>
-    </fieldset>
-
-    <fieldset>
-      <legend>Elige tu modalidad de bachillerato:</legend>
-
-      <div>
-        <input type="radio" class="modality-selector" name="modality-selector" id="Ciencias Y Tecnología"/>
-        <label for="Ciencias Y Tecnología">Ciencias Y Tecnología</label>
-      </div>
-      <div>
-        <input type="radio" class="modality-selector" name="modality-selector" id="Humanidades Y Ciencias Sociales"/>
-        <label for="Humanidades Y Ciencias Sociales">Humanidades Y Ciencias Sociales</label>
-      </div>
-      <div>
-        <input type="radio" class="modality-selector" name="modality-selector" id="Música Y Artes Escénicas"/>
-        <label for="Música Y Artes Escénicas">Música Y Artes Escénicas</label>
-      </div>
-      <div>
-        <input type="radio" class="modality-selector" name="modality-selector" id="Artes Plásticas, Imágen Y Diseño"/>
-        <label for="Artes Plásticas, Imágen Y Diseño">Artes Plásticas, Imágen Y Diseño</label>
-      </div>
-      <div>
-        <input type="radio" class="modality-selector" name="modality-selector" id="General"/>
-        <label for="General">General</label>
-      </div>
-
-    </fieldset>
+    <div class="container-fieldsets">
+      <fieldset>
+        <legend>Elige tu nivel de bachillerato:</legend>
+    
+        <input type="radio" class="level-selector" id="first-level" name="level-selector">
+        <label for="first-level">1º de Bach</label> <br>
+        <input type="radio" class="level-selector" id="second-level" name="level-selector">
+        <label for="second-level">2º de Bach</label>
+      </fieldset>
+    </div>
+    <div class="container-fieldsets">
+      <fieldset>
+        <legend>Elige tu modalidad de bachillerato:</legend>
+    
+        <div>
+          <input type="radio" class="modality-selector" name="modality-selector" id="Ciencias Y Tecnología"/>
+          <label for="Ciencias Y Tecnología">Ciencias Y Tecnología</label>
+        </div>
+        <div>
+          <input type="radio" class="modality-selector" name="modality-selector" id="Humanidades Y Ciencias Sociales"/>
+          <label for="Humanidades Y Ciencias Sociales">Humanidades Y Ciencias Sociales</label>
+        </div>
+        <div>
+          <input type="radio" class="modality-selector" name="modality-selector" id="Música Y Artes Escénicas"/>
+          <label for="Música Y Artes Escénicas">Música Y Artes Escénicas</label>
+        </div>
+        <div>
+          <input type="radio" class="modality-selector" name="modality-selector" id="Artes Plásticas, Imágen Y Diseño"/>
+          <label for="Artes Plásticas, Imágen Y Diseño">Artes Plásticas, Imágen Y Diseño</label>
+        </div>
+        <div>
+          <input type="radio" class="modality-selector" name="modality-selector" id="General"/>
+          <label for="General">General</label>
+        </div>
+      </fieldset>
+    </div>
+    
 
     <div class="container">
       <fieldset>
@@ -414,13 +417,13 @@
     <p id="results2"></p>
     <p id="results-bach"></p>
 
-    <div>
+    
+    <div class="container">
       <input id="objective-grade" type="number" max="14" min="0" step="0.001">
       <label for="objective-grade">Nota de corte de tu grado/carrera</label>
     </div>
 
     <p id="needed-grade"></p>
     <p id="needed-grade-info"></p>
-
   </body>
 </html>
