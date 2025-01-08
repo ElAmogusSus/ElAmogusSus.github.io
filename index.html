@@ -340,7 +340,7 @@
           if(objectiveGrade.value != 0) {
             let needed = objectiveGrade.value - bach;
             if(needed > 0) {
-              neededGrade.innerHTML = `Necesitas ${needed.toFixed(3)} puntos de la PAU y las ponderaciones`;
+              neededGrade.innerHTML = `Necesitas ${needed.toFixed(3)} puntos de la PAU y las ponderaciones. O al menos un ${(needed / 0.4).toFixed(3)} en la PAU`;
             } else {
               neededGrade.innerHTML = `Has alcanzado la nota de corte con solo tu nota de bachillerato, técnicamente,
                 pasarías incluso con un 0 en la PAU y en las ponderaciones, pero eso no significa que no deberías de esforzarte
