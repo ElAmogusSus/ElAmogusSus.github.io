@@ -90,3 +90,21 @@ p {
   gap: 20px;
   margin-top: 15px;
 }
+
+footer {
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #1f1f1f;
+  color: #e5e7eb;
+  border-top: 1px solid #333;
+}
+
+footer a {
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
