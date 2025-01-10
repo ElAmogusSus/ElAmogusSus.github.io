@@ -312,15 +312,21 @@
           }
 
           if(level == first) {
-            average1 = average;
+            results1.hidden = false;
+
+            average1 = average; 
             results1.innerHTML = `Media de 1º Bach: ${average.toFixed(2)}`;
           } else {
+            results2.hidden = false;
+
             average2 = average;
             results2.innerHTML = `Media de 2º Bach: ${average.toFixed(2)}`;
           }
           averageBach = (average1 + average2) / 2
           updateNeededGrade();
           if(average1 != 0 && average2 != 0) {
+            resultsBach.hidden = false;
+
             resultsBach.innerHTML = `Nota media ambos bachilleratos: ${((average1 + average2)/2).toFixed(2)}`;
           }
         }
@@ -338,6 +344,9 @@
         function updateNeededGrade() {
           let bach = averageBach * 0.6;
           if(objectiveGrade.value != 0) {
+            neededGrade.hidden = false;
+            neededGradeInfo.hidden = false;
+
             let needed = objectiveGrade.value - bach;
             if(needed > 0) {
               neededGrade.innerHTML = `Necesitas ${needed.toFixed(3)} puntos de la PAU y las ponderaciones. O al menos un ${(needed / 0.4).toFixed(3)} en la PAU`;
@@ -348,6 +357,9 @@
             }
             neededGradeInfo.innerHTML = `Bachilleratos: (${average1.toFixed(2)} + ${average2.toFixed(2)}) * 0.60 = ${bach.toFixed(3)}`
           } else {
+            neededGrade.hidden = true;
+            neededGradeInfo.hidden = false;
+
             neededGrade.innerHTML = ``;
             neededGradeInfo.innerHTML = `Inserte la nota de corte deseada en el cuadro superior. Puede encontrarla buscando "notas de corte (universidad)"`;
           }
@@ -413,9 +425,9 @@
 
     <div id="input-set"></div>
 
-    <p id="results1"></p>
-    <p id="results2"></p>
-    <p id="results-bach"></p>
+    <p id="results1" hidden></p>
+    <p id="results2" hidden></p>
+    <p id="results-bach" hidden></p>
 
     
     <div class="container">
@@ -423,7 +435,7 @@
       <label for="objective-grade">Nota de corte de tu grado/carrera</label>
     </div>
 
-    <p id="needed-grade"></p>
-    <p id="needed-grade-info"></p>
+    <p id="needed-grade" hidden></p>
+    <p id="needed-grade-info" hidden></p>
   </body>
 </html>
