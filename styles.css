@@ -99,12 +99,12 @@ p {
   flex-wrap: wrap; /* Permite que se ajusten en múltiples líneas si es necesario */
   justify-content: center; /* Centra horizontalmente */
   align-items: center; /* Centra verticalmente */
-  min-height: 200px; /* Altura mínima del contenedor */
+  min-height: 115px; /* Altura mínima del contenedor */
 }
 
 
 .container-fieldsets fieldset {
   flex: 1; /* Los fieldsets se ajustarán automáticamente al ancho disponible */
   min-width: 200px; /* Ancho mínimo para asegurar que no se compriman demasiado */
-  max-width: 500px; /* Ancho máximo si deseas limitarlo */
+  max-width: 600px; /* Ancho máximo si deseas limitarlo */
 }
