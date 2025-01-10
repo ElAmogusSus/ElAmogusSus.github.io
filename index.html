@@ -40,7 +40,9 @@
         let subjectSelectors = document.querySelectorAll('.subject-selector');
 
         let subjectSet = document.getElementById('subject-set');
+        let subjectSetFieldset = document.getElementById('subject-set-fieldset');
         let selectionSet = document.getElementById('selection-set');
+        let selectionSetFieldset = document.getElementById('selection-set-fieldset');
         let allModalitySubjectsSet = document.getElementById('all-modality-subjects-set');
         let allModalitySubjectsFieldset = document.getElementById('all-modality-subjects-fieldset');
         let inputSet = document.getElementById('input-set');
@@ -212,6 +214,9 @@
             }
           }
 
+          subjectSetFieldset.hidden = false;
+          selectionSetFieldset.hidden = false;
+          
           subjectSet.innerHTML = subjectsHtml;
           selectionSet.innerHTML = selectionHtml;
           allModalitySubjectsSet.innerHTML = allModalitySubjectsHtml;
@@ -409,11 +414,11 @@
     
 
     <div class="container">
-      <fieldset>
+      <fieldset id="subject-set-fieldset" hidden>
         <legend>Elige tus asignaturas:</legend>
         <div id="subject-set"></div>
       </fieldset>
-      <fieldset>
+      <fieldset id="selection-set-fieldset" hidden>
         <legend>Elige una optativa:</legend>
         <div id="selection-set"></div>
       </fieldset>
