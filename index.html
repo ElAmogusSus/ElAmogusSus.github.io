@@ -264,6 +264,8 @@
 
         function UpdateInputs()
         {
+          inputSet.hidden = false;
+
           let html = '';
           subjectSelectors.forEach(selector => {
             if(selector.checked) {
@@ -428,7 +430,7 @@
       </fieldset>
     </div>
 
-    <div id="input-set"></div>
+    <div id="input-set" hidden></div>
 
     <p id="results1" hidden></p>
     <p id="results2" hidden></p>
