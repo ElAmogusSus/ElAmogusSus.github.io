@@ -334,7 +334,7 @@
           if(average1 != 0 && average2 != 0) {
             resultsBach.hidden = false;
 
-            resultsBach.innerHTML = `Nota media ambos bachilleratos: ${((average1 + average2)/2).toFixed(2)}`;
+            resultsBach.innerHTML = `Nota media ambos bachilleratos: ${averageBach.toFixed(2)}`;
           }
         }
 
@@ -356,7 +356,9 @@
 
             let needed = objectiveGrade.value - bach;
             if(needed > 0) {
-              neededGrade.innerHTML = `Necesitas ${needed.toFixed(3)} puntos de la PAU y las ponderaciones. O al menos un ${(needed / 0.4).toFixed(3)} en la PAU`;
+              neededGrade.innerHTML = `Necesitas ${needed.toFixed(3)} puntos de la PAU y las ponderaciones. O al menos un
+              ${(needed / 0.4)-(bach * 0.4).toFixed(3)}en la PAU si suponemos que sacas ${(bach).toFixed(3)}, tu nota media de
+              bachillerato, en los exámenes de las optativas que ponderan 0.2`;
             } else {
               neededGrade.innerHTML = `Has alcanzado la nota de corte con solo tu nota de bachillerato, técnicamente,
                 pasarías incluso con un 0 en la PAU y en las ponderaciones, pero eso no significa que no deberías de esforzarte
