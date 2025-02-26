@@ -349,19 +349,20 @@
         });
 
         function updateNeededGrade() {
-          let bach = averageBach * 0.6;
           if(objectiveGrade.value != 0) {
             neededGrade.hidden = false;
             neededGradeInfo.hidden = false;
 
+            let bach = averageBach * 0.6;
             let needed = objectiveGrade.value - bach;
+
             if(needed > 0) {
-              neededGrade.innerHTML = `Necesitas ${needed.toFixed(3)} puntos de la PAU y las ponderaciones. O al menos un
-              ${((needed / 0.4)-(averageBach * 0.4)).toFixed(3)}en la PAU si suponemos que sacas ${(averageBach).toFixed(3)}, tu nota media de
-              bachillerato, en los exámenes de las optativas que ponderan 0.2`;
+              neededGrade.innerHTML = `Necesitas ${needed.toFixed(3)} puntos desde la PAU y las ponderaciones. Si sacas un 
+                ${averageBach.toFixed(3)} en los exámenes de las ponderaciones, suponiendo que ambos te ponderan 0.2, 
+                necesitarías aún un ${(needed - averageBach * 0.4).toFixed(3)} en la PAU`;
             } else {
               neededGrade.innerHTML = `Has alcanzado la nota de corte con solo tu nota de bachillerato, técnicamente,
-                pasarías incluso con un 0 en la PAU y en las ponderaciones, pero eso no significa que no deberías de esforzarte
+                pasarías con cualquier nota en la PAU y en las ponderaciones, pero eso no significa que no deberías de esforzarte
                 en estos exámenes`;
             }
             neededGradeInfo.innerHTML = `Bachilleratos: (${average1.toFixed(2)} + ${average2.toFixed(2)}) * 0.60 = ${bach.toFixed(3)}`
