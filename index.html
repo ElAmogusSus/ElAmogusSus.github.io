@@ -357,7 +357,7 @@
             let needed = objectiveGrade.value - bach;
             if(needed > 0) {
               neededGrade.innerHTML = `Necesitas ${needed.toFixed(3)} puntos de la PAU y las ponderaciones. O al menos un
-              ${(needed / 0.4)-(bach * 0.4).toFixed(3)}en la PAU si suponemos que sacas ${(bach).toFixed(3)}, tu nota media de
+              ${((needed / 0.4)-(averageBach * 0.4)).toFixed(3)}en la PAU si suponemos que sacas ${(averageBach).toFixed(3)}, tu nota media de
               bachillerato, en los exámenes de las optativas que ponderan 0.2`;
             } else {
               neededGrade.innerHTML = `Has alcanzado la nota de corte con solo tu nota de bachillerato, técnicamente,
