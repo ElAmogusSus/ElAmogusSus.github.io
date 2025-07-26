@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <link rel="stylesheet" href="styles.css">
+    <!-- TODO: Haciendo pruebas. Reactivaré el CSS más tarde <link rel="stylesheet" href="styles.css"> --> 
     <script type="module">
       import {
         first,
@@ -359,11 +359,9 @@
             if(needed > 0) {
               neededGrade.innerHTML = `Necesitas ${needed.toFixed(3)} puntos desde la PAU y las ponderaciones. Si sacas un 
                 ${averageBach.toFixed(3)} en los exámenes de las ponderaciones, suponiendo que ambos te ponderan 0.2, 
-                necesitarías aún un ${(needed - averageBach * 0.4).toFixed(3)} en la PAU`;
+                necesitarías sacar un ${((needed - averageBach * 0.4)* 0.6).toFixed(3)} en la PAU`;
             } else {
-              neededGrade.innerHTML = `Has alcanzado la nota de corte con solo tu nota de bachillerato, técnicamente,
-                pasarías con cualquier nota en la PAU y en las ponderaciones, pero eso no significa que no deberías de esforzarte
-                en estos exámenes`;
+              neededGrade.innerHTML = `Has alcanzado la nota de corte con solo tu nota de bachillerato, pero aún así es necesario aprobar la selectividad.`;
             }
             neededGradeInfo.innerHTML = `Bachilleratos: (${average1.toFixed(2)} + ${average2.toFixed(2)}) * 0.60 = ${bach.toFixed(3)}`
           } else {
